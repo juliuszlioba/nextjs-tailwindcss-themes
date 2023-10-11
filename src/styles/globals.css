@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root,
+	:root[data-theme='light'] {
+		--foreground-rgb: 0 0 0;
+		--background-rgb: 245 245 244;
+		--primary-rgb: 162 28 175;
+		--secondary-rgb: 59 130 246;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--foreground-rgb: 214 219 220;
+			--background-rgb: 0 0 0;
+			--secondary-rgb: 29 78 216;
+		}
+	}
+
+	/* for manual overwrite */
+	:root[data-theme='dark'] {
+		--foreground-rgb: 214 219 220;
+		--background-rgb: 0 0 0;
+		--secondary-rgb: 29 78 216;
+	}
+
+	:root[data-theme='color'] {
+		--foreground-rgb: 214 219 220;
+		--background-rgb: 46 16 101;
+		--primary-rgb: 217 119 6;
+	}
+
+	body {
+		background: rgb(var(--background-rgb));
+		color: rgb(var(--foreground-rgb));
+	}
+
+	.button {
+		@apply hover:text-primary hover:border-primary inline-flex rounded-full border-2 border-content p-2;
+	}
+}
+
+/* for light theme active switch */
+:root[data-theme='light'] .theme-light {
+	@apply bg-secondary;
+}
+
+/* for color theme active switch */
+:root[data-theme='color'] .theme-color {
+	@apply bg-secondary;
+}
+
+/* for dark theme active switch */
+:root[data-theme='dark'] .theme-dark {
+	@apply bg-secondary;
+}
