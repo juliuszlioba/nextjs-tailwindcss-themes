@@ -1,6 +1,6 @@
 import '../styles/globals.css'
-import { getCurrentTheme } from '@/lib/theme'
 import { Inter } from 'next/font/google'
+import { ThemeProvider } from '@/components/theme-provider'
 import type { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -15,11 +15,13 @@ export default async function RootLayout({
 }: {
 	children: React.ReactNode
 }) {
-	const theme = await getCurrentTheme()
-
 	return (
-		<html lang="en" data-theme={theme}>
-			<body className={inter.className}>{children}</body>
+		<html lang="en" suppressHydrationWarning>
+			<body className={inter.className}>
+				<ThemeProvider defaultTheme="system" enableSystem>
+					{children}
+				</ThemeProvider>
+			</body>
 		</html>
 	)
 }

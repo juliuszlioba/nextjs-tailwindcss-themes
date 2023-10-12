@@ -38,7 +38,7 @@
 	}
 
 	.button {
-		@apply hover:text-primary hover:border-primary inline-flex rounded-full border-2 border-content p-2;
+		@apply inline-flex rounded-full border-2 border-content p-2 hover:border-primary hover:text-primary;
 	}
 }
 
@@ -55,4 +55,8 @@
 /* for dark theme active switch */
 :root[data-theme='dark'] .theme-dark {
 	@apply bg-secondary;
+}
+
+.TooltipArrow {
+	fill: rgb(var(--primary-rgb));
 }
